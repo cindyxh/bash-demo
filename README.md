@@ -1,5 +1,27 @@
 # Bash Tips
 
+## specify command to run the file
+
+Running a command through `/usr/bin/env` has the benefit of looking for whatever the default version of the program is in your current environment. So you don't have to look for it in a specific place on the system.
+
+```bash
+#!/usr/bin/env bash #lends you some flexibility on different systems
+#!/usr/bin/bash     #gives you explicit control on a given system of what executable is called
+```
+
+## echo shell commands
+
+```bash
+# to turn on
+set -x
+set -o xtrace
+set -v
+set -o verbose
+# to turn off
+set +x
+set +v
+```
+
 ## find directories
 
 ```bash
