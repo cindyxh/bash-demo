@@ -68,6 +68,11 @@ grep --exclude=\*.o -rnw '/path/to/somewhere/' -e "pattern"
 grep --exclude-dir={dir1,dir2,_.dst} -rnw '/path/to/somewhere/' -e "pattern"
 ```
 
-```
+## color echo
 
+```bash
+red=`tput setaf 1`
+green=`tput setaf 2`
+reset=`tput sgr0`
+echo "${red}red text ${green}green text${reset}"
 ```
