@@ -9,6 +9,16 @@ Running a command through `/usr/bin/env` has the benefit of looking for whatever
 #!/usr/bin/bash     #gives you explicit control on a given system of what executable is called
 ```
 
+## pushd and popd
+```bash
+pushd
+popd
+dirs
+dirs -v
+cd ~1
+# In ~/.bashrc
+alias dirs="dirs -v"
+```
 ## echo shell commands
 
 ```bash
