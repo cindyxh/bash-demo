@@ -12,7 +12,15 @@ Running a command through `/usr/bin/env` has the benefit of looking for whatever
 ## pushd and popd
 ```bash
 pushd
+# move 2nd from bottom to top
+pushd +1
+# move 2nd from top to top
+pushd -1
 popd
+# pop 2nd item from bottom
+popd +1
+# pop 2nd item from top
+popd -1
 dirs
 dirs -v
 cd ~1
