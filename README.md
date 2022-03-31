@@ -9,6 +9,49 @@ Running a command through `/usr/bin/env` has the benefit of looking for whatever
 #!/usr/bin/bash     #gives you explicit control on a given system of what executable is called
 ```
 
+## extract cert file from pfx
+```
+openssl pkcs12 -in mic_certificate_<>.pfx -clcerts -nokeys -out <>.pem
+```
+
+## AWK
+```bash
+# row 4 and item 6
+iostat | awk '{if (NR==4) print $6}'
+d=$(echo "3 4" | awk '{c=$2/$1; printf "%0.4f\n", c }') 
+sensors | grep CPU | awk '{printf "%d\n", $2}'
+cat pi_data.txt | awk '{if ( $1 ~ /[0-9]/ ) print $0}'
+
+$ cat pi_data.txt | \
+>   awk '{if ( $1 ~ /[0-9]/ ) \
+>            { \
+>               {if ($3 < 4) {print $1 "\t small"} else { print $1 "\t medium"} } \
+>        } else { print $1 "\t " $3} \
+>        }'
+time     wave(ft)
+
+ls -l *.db | awk '{sum +=$5 } END {print "Total= " sum}'
+lsusb -v  2>&- | grep -E  'Bus 00|MaxPower'
+
+#!/bin/bash
+#
+# stop_task.sh - stop a task
+#
+task1="edublocks"
+ 
+echo "Stopping $task1..."
+ps -e | grep -E $task1 | \
+ awk '{print $1}' | xargs sudo kill -9 1>&-
+ 
+# another option:
+ps -e | grep $task1 | awk '{system("sudo kill " $1 "  1>&-")'}
+
+sensors | grep CPU | awk '{print substr($2,2,4)}'
+
+# separator :
+echo "1: " | awk -F  ":" '/1/ {print $1}'
+```
+
 ## pushd and popd
 ```bash
 pushd
