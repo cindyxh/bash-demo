@@ -47,8 +47,11 @@ ps -e | grep -E $task1 | \
 ps -e | grep $task1 | awk '{system("sudo kill " $1 "  1>&-")'}
 
 sensors | grep CPU | awk '{print substr($2,2,4)}'
-
+```
+### AWK Separator
+```bash
 # separator :
+echo "1:hi" | awk -F  ":" '{print $2}'
 echo "1: " | awk -F  ":" '/1/ {print $1}'
 
 # use split
