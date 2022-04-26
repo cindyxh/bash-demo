@@ -56,7 +56,8 @@ echo "1: " | awk -F  ":" '/1/ {print $1}'
 
 # use split
 echo "12=23 11" | awk '{split($0,a,"="); print a[3]; print a[2]; print a[1]}'
-export JAVA_HOME=$(java -XshowSettings:properties -version 2>&1 > /dev/null | grep 'java.home' | awk '{split($0,v,"="); print v[2] }')
+export JAVA_HOME=$(java -XshowSettings:properties -version 2>&1 > /dev/null | grep 'java.home' | awk '{split($0,v,"= "); print v[2] }')
+ls ""${JAVA_HOME}""
 ```
 
 ## pushd and popd
