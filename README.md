@@ -59,6 +59,38 @@ echo "12=23 11" | awk '{split($0,a,"="); print a[3]; print a[2]; print a[1]}'
 export JAVA_HOME=$(java -XshowSettings:properties -version 2>&1 > /dev/null | grep 'java.home' | awk '{split($0,v,"= "); print v[2] }')
 ls ""${JAVA_HOME}""
 ```
+## Insert line
+https://www.baeldung.com/linux/insert-line-specific-line-number
+### ed (interactive)
+```bash
+# ed: number of character in the file and interactive
+# insert at line 3 "hello"
+# save and exit . - finish, w - write changes, q - quit
+ed <file>
+3i
+hello
+.
+w
+q
+# save above scripts in script.ed
+ed <file> <script.ed
+```
+### sed (origin from ed)
+```bash
+# line 3, i for insert
+# -i for apply changes to the file
+sed -i '3 i hello' <file>
+# save change to a different file
+sed '3 i hello' <file> > <outfile>
+```
+### awk (from ed)
+```bash
+# awk 'condition{action}'
+# NR num of records for line number
+# number 1 at the end could be any non-zero, to print every line
+awk 'NR==3{print "New Line with awk"}1' File1
+```
+### gawk (GNU awk)
 
 ## pushd and popd
 ```bash
