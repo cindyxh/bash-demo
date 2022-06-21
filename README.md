@@ -13,6 +13,11 @@ Running a command through `/usr/bin/env` has the benefit of looking for whatever
 ```
 openssl pkcs12 -in mic_certificate_<>.pfx -clcerts -nokeys -out <>.pem
 ```
+## view system info
+```bash
+system_profiler SPSoftwareDataType SPHardwareDataType
+uname
+```
 
 ## AWK
 ```bash
